@@ -1,0 +1,12 @@
+# vim: ft=gitconfig
+
+[user]
+  name = {{ .full_name | quote }}
+  email = {{ .email | quote }}
+
+[include]
+  {{- if .is_work }}
+  path = .gitconfig_work
+  {{- end }}
+  path = .gitconfig_global
+

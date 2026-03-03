@@ -1,0 +1,64 @@
+# vim: ft=gitconfig
+
+[merge]
+  tool = vimdiff
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+[core]
+  whitespace = cr-at-eol,tab-in-indent
+  autocrlf = input
+  ignoreCase = false
+[difftool]
+  prompt = false
+[diff]
+  guitool = gvimdiff
+  renamelimit = 100000000
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  cpx = cherry-pick -x
+  cia = commit --amend
+  cian = commit --amend --no-edit
+  subm = submodule
+  subui = submodule update --init
+  subuir = submodule update --init --recursive
+  subm-hard-clean   = submodule --quiet foreach --recursive 'git clean -ffdx'
+  subm-hard-reset   = submodule --quiet foreach --recursive 'git reset --hard HEAD'
+  df = diff
+  lg = log -p
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lolc= log --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  ls = ls-files
+  {{- if .is_work }}
+  cleanup-reviews = "!f() { git branch | grep review | xargs git branch -D; }; f"
+  subm-setup-gerrit = submodule --quiet foreach --recursive git-setup-review
+  {{- end }}
+[push]
+  default = simple
+[gui]
+
+[ssh]
+  variant = ssh
+[pull]
+  rebase = true
+
+[advice]
+  skippedCherryPicks = false
+
+[filter "lfs"]
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+
+[credential "https://github.com"]
+  helper = 
+  helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+  helper = 
+  helper = !/usr/bin/gh auth git-credential
