@@ -1,0 +1,5 @@
+func/_brew
+func/_rvm
+zsh-pip-completion
+*/local
+!*/local/.gitkeep

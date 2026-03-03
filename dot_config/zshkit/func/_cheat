@@ -1,0 +1,28 @@
+#compdef cheat
+
+__all_sheets() {
+	_sheets=($(${service} sheets | grep '^  '))	
+	compadd "$@" -k _sheets
+}
+__all_versions() {
+	_sheets=($(${service} sheets | grep '^  '))	
+	compadd "$@" -k _sheets
+}
+
+local cheat_general_flags cheat_commands
+cheat_general_flags=(
+"(--add)--edit[edit a cheat]"
+"(--add --edit --diff)--versions[list avalible versions of a sheet]"
+"(--edit --versions --diff)--add[add a new sheet named]"
+"(--edit --versions --add)--diff[compare sheet versions]"
+"--new[clear the cache for these cheets]"
+)
+_cheat () {                                                      
+	if (( CURRENT > 2 )); then
+		_arguments $cheat_general_flags && ret=0
+	else
+		_arguments "*:sheet:__all_sheets" && ret=0
+	fi
+}
+
+_cheat

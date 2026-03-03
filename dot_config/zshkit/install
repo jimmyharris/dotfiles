@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+
+mydir="${0:A:h}"
+
+dest=$HOME
+
+echo ZSHKIT Directory: $mydir
+
+cd $mydir
+git submodule update --init --recursive
+cd -
+
+mv $HOME/.zshenv $HOME/.zshenv.pre_zshkit
+mv $HOME/.zshrc $HOME/.zshrc.pre_zshkit
+
+cat > $HOME/.zshenv <<EOF
+ZSHKIT=${mydir}
+source \$ZSHKIT/zshenv
+
+export ZSHKIT
+EOF
+cat > $HOME/.zshrc <<EOF
+source \$ZSHKIT/zshrc
+EOF
