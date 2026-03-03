@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Get the push server because the fetch server may be a mirror
+GERRIT_SERVER=$(git remote show origin | grep gerrit | grep Push | cut -d : -f 2,3,4 | tr -d ' ')
+
+if [[ -n $GERRIT_SERVER ]]; then
+  # if the gerrit remote is not already present
+  if (git remote | grep gerrit > /dev/null); then
+    git remote remove gerrit
+  fi
+  echo "Adding gerrit remote for server: $GERRIT_SERVER"
+  # if adding the remote succeeds
+
+  git remote add gerrit "$GERRIT_SERVER";
+
+  # echo "Initializing gerrit commit hooks."
+  # git review -s
+fi
