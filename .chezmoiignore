@@ -1,1 +1,8 @@
 README.md
+
+{{- if ne .chezmoi.os "darwin" }}
+dot_config/zshkit
+dot_zprofile
+dot_zshenv
+dot_zshrc
+{{- end }}
