@@ -1,5 +1,0 @@
-resurrect/
-plugins/
-^plugins/.gitkeep
-*.log
-Session.vim
