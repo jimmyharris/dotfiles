@@ -1,0 +1,60 @@
+#!/bin/zsh
+typeset -gx ZPLUG_HOME=$HOME/.config/zplug
+
+if [ ! -s "$ZPLUG_HOME/init.zsh" ]; then
+    printf "Install zplug ? [y/N]: "
+    if read -q; then
+        echo; curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+    fi
+fi
+
+if [ -s "$ZPLUG_HOME/init.zsh" ]; then
+    source $ZPLUG_HOME/init.zsh
+
+    # Load all plugins
+    zplug "chrissicool/zsh-256color"
+
+    # Additional zsh completions.
+    zplug "zsh-users/zsh-completions"
+
+    # Prompt. (lock at this version untill timestamp bug is fixed.)
+    # zplug "frmendes/geometry", at:c8ec1b63d91834cd9f9bd5b345f6ca8d097301f8, \
+      # use:"geometry.zsh"
+    # zplug "mafredri/zsh-async", on:"sindresorhus/pure"
+    # zplug "sindresorhus/pure", use:"pure.zsh"
+
+    # Load local configuration after other plugins but pre-compinit. 
+    zplug "$ZSHKIT/rc", \
+      from:"local", \
+      use:"**/*.(sh|zsh)", \
+      defer:1
+
+    # Load Post compinit plugins
+    zplug "zsh-users/zsh-syntax-highlighting", \
+      defer:3
+
+    zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+    # Install plugins if there are plugins that have not been installed
+    if ! zplug check; then
+        printf "Install zplug plugins? [y/N]: "
+        if read -q; then
+            echo; zplug install
+        fi
+    fi
+
+    zplug load
+fi
+# Make sure paths don't grow endlessly with subshells.
+typeset -U path fpath
+
+. "$HOME/.local/bin/env"
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# starship
+eval "$(starship init zsh)"
