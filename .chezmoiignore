@@ -1,8 +1,14 @@
 README.md
 
-{{ if ne .chezmoi.os "darwin" }}
+.config/bash-it.custom/local
+
+{{- if ne .chezmoi.os "darwin" }}
 .config/zshkit
 .zprofile
 .zshenv
 .zshrc
-{{ end }}
+{{- else }}
+bin/freeze_bash-it
+.config/bash-it.custom
+.bashrc
+{{- end }}

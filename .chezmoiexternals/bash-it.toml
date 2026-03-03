@@ -1,0 +1,6 @@
+{{- if ne .chezmoi.os "darwin" }}
+[".config/bash-it-cz"]
+  type = "git-repo"
+  url = "https://github.com/bash-it/bash-it"
+  refreshPeriod = "168h"
+{{- end }}
