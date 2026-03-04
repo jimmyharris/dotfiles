@@ -429,17 +429,10 @@ local plugin_specs = {
   { "pearofducks/ansible-vim" },
 
   {
-    "andre-kotake/nvim-chezmoi",
+    "xvzc/chezmoi.nvim",
     dependencies = {
       { "nvim-lua/plenary.nvim" },
-      { "nvim-telescope/telescope.nvim" },
     },
-    opts = { 
-      -- Your custom config 
-    },
-    config = function(_, opts)
-      require("nvim-chezmoi").setup(opts)
-    end,
   },
   -- python dev tools
   {
