@@ -1,8 +1,8 @@
 {{- if ne .chezmoi.os "darwin" }}
-[".config/bash-it-cz"]
-  type = "git-repo"
-  url = "https://github.com/bash-it/bash-it"
-  refreshPeriod = "168h"
+[".config/bash-it"]
+  type = "archive"
+  url = "https://github.com/Bash-it/bash-it/archive/refs/tags/v3.2.0.tar.gz"
+  stripComponent = 1
   exclude = [
     "custom/*",
     "profiles/*",

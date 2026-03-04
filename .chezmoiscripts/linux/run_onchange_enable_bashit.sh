@@ -2,4 +2,4 @@
 
 source $BASH_IT/bash_it.sh
 
-bash-it profile load personal
+bash-it profile load personal || echo "failed"
