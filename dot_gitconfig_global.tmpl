@@ -55,16 +55,12 @@
   required = true
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
-
-{{- if eq .chezmoi.os "darwin" }}
-{{- $dummy := set . "gh_path" "/usr/local/bin/gh" }}
-{{- else }}
-{{- $dummy := set . "gh_path" "/usr/bin/gh" }}
-{{- end }}
-
+{{ $gh_path := findExecutable "gh" (list "bin" "/usr/bin" "/usr/local/bin") }}
+{{- if $gh_path }}
 [credential "https://github.com"]
   helper = 
-  helper = !{{ .gh_path }} auth git-credential
+  helper = !{{ $gh_path }} auth git-credential
 [credential "https://gist.github.com"]
   helper = 
-  helper = !{{ .gh_path }} auth git-credential
+  helper = !{{ $gh_path }} auth git-credential
+{{- end }}

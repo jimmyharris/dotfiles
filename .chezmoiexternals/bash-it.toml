@@ -3,4 +3,8 @@
   type = "git-repo"
   url = "https://github.com/bash-it/bash-it"
   refreshPeriod = "168h"
+  exclude = [
+    "custom/*",
+    "profiles/*",
+  ]
 {{- end }}
