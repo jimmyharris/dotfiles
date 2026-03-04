@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# poke
+BASH_IT="${XDG_CONFIG_DIR:="$HOME/.config"}/bash-it"
+
+if [ -s "${BASH_IT}/bash_it.sh" ]; then 
+  source "${BASH_IT}/bash_it.sh"
+
+  # dconf.ini hash: {{ include "dot_config/bash-it/profiles/personal.bash_it" | sha256sum }}
+  bash-it profile load personal
+fi
