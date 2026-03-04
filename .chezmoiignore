@@ -2,7 +2,7 @@ README.md
 
 .config/bash-it.custom/local
 
-{{- if not .is_work }}
+{{- if not .work }}
 bin/git-setup-review
 {{- end}}
 

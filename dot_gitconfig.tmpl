@@ -5,7 +5,7 @@
   email = {{ .email | quote }}
 
 [include]
-  {{- if .is_work }}
+  {{- if .work }}
   path = .gitconfig_work
   {{- end }}
   path = .gitconfig_global

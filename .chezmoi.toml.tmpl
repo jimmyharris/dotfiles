@@ -1,8 +1,63 @@
-{{- $fullName := promptStringOnce . "full_name" "Full name" }}
-{{- $email := promptStringOnce . "email" "Email address" }}
-{{- $isWork := promptBoolOnce . "is_work" "Is this a work machine" }}
+{{/* boolean feature tags */}}
+{{- $ephemeral := false -}}{{/* true if this machine is ephemeral, e.g. a cloud or VM instance */}}
+{{- $work := false -}}{{/* true if this machine is a work machine */}}
+{{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+{{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
+{{- "" -}}
+
+{{- $osID := .chezmoi.os -}}
+{{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
+{{-   $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+{{/* detect GitHub codespaces, VSCode remote containers, Docker containers, Multipass VMs, and Vagrant boxes */}}
+{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "ubuntu" "vagrant" "vscode") -}}
+{{-   $ephemeral = true -}}
+{{-   $headless = true -}}
+{{- end -}}
+
+{{/* work around unreliable hostname on darwin */}}
+{{- $hostname := .chezmoi.hostname -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   $hostname := output "scutil" "--get" "LocalHostName" | trim -}}
+{{- end -}}
+
+{{- if eq .chezmoi.os "windows" -}}
+{{-   $ephemeral = true -}}
+{{- end -}}
+
+{{- if not $ephemeral -}}
+{{-   if stdinIsATTY -}}
+{{-     $headless = promptBoolOnce . "headless" "headless" -}}
+{{-     $ephemeral = promptBoolOnce . "ephemeral" "ephemeral" -}}
+{{-     if not $ephemeral -}}
+{{-       $work = promptBoolOnce . "work" "work" -}}
+{{-       if not $work -}}
+{{-         $personal = promptBoolOnce . "personal" "personal" -}}
+{{-       end -}}
+{{-     end -}}
+{{-   else -}}
+{{-     $ephemeral = true -}}
+{{-     $headless = true -}}
+{{-   end -}}
+{{- end -}}
+
+{{- $email := "james.russell.harris@gmail.com" -}}
+{{- $full_name := "Jimmy Harris" -}}
+{{- if $work -}}
+{{-   $email = "james.harris@garmin.com" -}}
+{{-   $full_name := "James Harris" -}}
+{{- end -}}
 
 [data]
-    email = {{ $email | quote }}
-    full_name = {{ $fullName | quote }}
-    is_work = {{ $isWork }}
+  ephemeral = {{ $ephemeral }}
+  email = {{ $email | quote }}
+  full_name = {{ $full_name | quote }}
+  work = {{ $work }}
+  headless = {{ $headless }}
+  hostname = {{ $hostname | quote }}
+  personal = {{ $personal }}
+  osid = {{ $osID | quote }}
+
+[github]
+refreshPeriod = "12h"

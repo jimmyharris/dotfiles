@@ -34,7 +34,7 @@
   lolc= log --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ls = ls-files
-  {{- if .is_work }}
+  {{- if .work }}
   cleanup-reviews = "!f() { git branch | grep review | xargs git branch -D; }; f"
   subm-setup-gerrit = submodule --quiet foreach --recursive git-setup-review
   {{- end }}
