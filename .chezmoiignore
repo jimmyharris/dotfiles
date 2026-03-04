@@ -11,6 +11,7 @@ bin/git-setup-review
 .config/bash-it-cz/profiles/default.bash-it
 
 {{- if ne .chezmoi.os "darwin" }}
+.chezmoiscripts/darwin/**
 .config/zshkit
 .zprofile
 .zshenv
@@ -18,7 +19,7 @@ bin/git-setup-review
 {{- end }}
 
 {{- if ne .chezmoi.os "linux" }}
-bin/freeze_bash-it
+.chezmoiscripts/linux/**
 .config/bash-it.custom
 .bashrc
 {{- end }}
