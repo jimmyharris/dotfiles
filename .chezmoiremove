@@ -1,0 +1,3 @@
+{{- if eq .chezmoi.os "linux" }}
+bin/freeze_bash-it
+{{- end }}

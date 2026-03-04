@@ -15,7 +15,9 @@ bin/git-setup-review
 .zprofile
 .zshenv
 .zshrc
-{{- else }}
+{{- end }}
+
+{{- if ne .chezmoi.os "linux" }}
 bin/freeze_bash-it
 .config/bash-it.custom
 .bashrc
