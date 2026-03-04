@@ -428,6 +428,19 @@ local plugin_specs = {
   -- ansible ft and highlighting.
   { "pearofducks/ansible-vim" },
 
+  {
+    "andre-kotake/nvim-chezmoi",
+    dependencies = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-telescope/telescope.nvim" },
+    },
+    opts = { 
+      -- Your custom config 
+    },
+    config = function(_, opts)
+      require("nvim-chezmoi").setup(opts)
+    end,
+  },
   -- python dev tools
   {
     "linux-cultist/venv-selector.nvim",
