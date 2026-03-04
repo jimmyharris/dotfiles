@@ -1,6 +1,5 @@
 README.md
 
-.config/bash-it.custom/local
 
 {{- if not .work }}
 bin/git-setup-review
@@ -12,10 +11,14 @@ bin/git-setup-review
 .zprofile
 .zshenv
 .zshrc
+!.config/bash-it/custom/*
+!.config/bash-it/profiles/*
+.config/bash-it/custom/local/
+.config/bash-it/enabled/
 {{- end }}
 
 {{- if ne .chezmoi.os "linux" }}
 .chezmoiscripts/linux/**
-.config/bash-it.custom
+.config/bash-it
 .bashrc
 {{- end }}

@@ -2,8 +2,9 @@
 [".config/bash-it"]
   type = "archive"
   url = "https://github.com/Bash-it/bash-it/archive/refs/tags/v3.2.0.tar.gz"
-  stripComponent = 1
+  stripComponents = 1
   exclude = [
+    "enabled/*",
     "custom/*",
     "profiles/*",
   ]

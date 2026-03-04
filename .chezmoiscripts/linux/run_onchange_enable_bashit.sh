@@ -1,5 +1,7 @@
 #!/bin/bash
 
-source $BASH_IT/bash_it.sh
+BASH_IT="${XDG_CONFIG_DIR:="$HOME/.config"}/bash-it"
 
-bash-it profile load personal || echo "failed"
+source "${BASH_IT}/bash_it.sh"
+
+bash-it profile load personal
