@@ -6,8 +6,10 @@ plugins edit-mode-vi
 plugins fzf
 plugins history-eternal
 plugins history
+plugins nvm
 
 # Completion
+completion aliases
 completion bash-it
 completion cargo
 completion git
@@ -27,3 +29,4 @@ aliases general
 aliases bash-it
 aliases directory
 aliases editor
+aliases general
