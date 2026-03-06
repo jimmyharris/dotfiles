@@ -1,0 +1,11 @@
+{{- if and (eq .chezmoi.os "linux") .isWSL2 }}
+{{- $binarySuffix := ""}}
+{{- if eq .chezmoi.arch "arm64" }}
+{{- $binarySuffix := "-arm64"}}
+{{- end }}
+["bin/wsl2-ssh-agent"]
+  type = "file"
+  url = "https://github.com/mame/wsl2-ssh-agent/releases/latest/download/wsl2-ssh-agent{{ $binarySuffix }}"
+  executable = true
+{{- end }}
+
