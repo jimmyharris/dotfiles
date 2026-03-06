@@ -1,5 +1,9 @@
 # vim: ft=gitconfig
 
+[user]
+  name = {{ .full_name | quote }}
+  email = {{ .email | quote }}
+
 [merge]
   tool = vimdiff
 [color]
@@ -10,6 +14,7 @@
   whitespace = cr-at-eol,tab-in-indent
   autocrlf = input
   ignoreCase = false
+  longpaths = true
 [difftool]
   prompt = false
 [diff]
@@ -34,18 +39,22 @@
   lolc= log --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ls = ls-files
-  {{- if .work }}
   cleanup-reviews = "!f() { git branch | grep review | xargs git branch -D; }; f"
   subm-setup-gerrit = submodule --quiet foreach --recursive git-setup-review
-  {{- end }}
+
 [push]
   default = simple
+
 [gui]
 
 [ssh]
   variant = ssh
+
 [pull]
   rebase = true
+
+[log]
+  follow = true
 
 [advice]
   skippedCherryPicks = false
@@ -64,3 +73,9 @@
   helper = 
   helper = !{{ $gh_path }} auth git-credential
 {{- end }}
+
+{{ if .work -}}
+[include]
+  path = config_work
+{{- end }}
+
