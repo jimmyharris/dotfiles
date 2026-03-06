@@ -62,21 +62,13 @@ local plugin_specs = {
   },
   {
     "mason-org/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = {
-        "ansiblels",
-        "bashls",
-        "pyrefly",
-        "ruff",
-        "vimls",
-        "yamlls",
-        "terraformls"
-      },
-    },
     dependencies = {
         "mason-org/mason.nvim",
         "neovim/nvim-lspconfig",
     },
+    config = function()
+      require("config.mason-lspconfig")
+    end
   },
   {
     "dnlhc/glance.nvim",
