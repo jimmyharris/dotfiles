@@ -60,14 +60,6 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 " }}}
 
-" vim-sandwich: {{{
-
-" Map s to nop since s in used by vim-sandwich. Use cl instead of s.
-nmap s <Nop>
-omap s <Nop>
-
-" }}}
-
 " vim-matchup: {{{
 
 " Improve performance
