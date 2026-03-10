@@ -14,7 +14,10 @@ local lsps = {
 }
 
 if utils.executable("npm") then
-  lsps = lsps + npm_based_lsps
+  -- Lua can't handle table concatenation like python.
+  for _,v in ipairs(npm_based_lsps) do
+    table.insert(lsps, v)
+  end
 else
   vim.notify("Unable to find npm, will skip installing node based language servers.", vim.log.levels.WARN, { title = "Nvim-config" })
 end
