@@ -50,8 +50,8 @@ typeset -U path fpath
 . "$HOME/.local/bin/env"
 
 # bun completions
-if [ -d "$HOME/.bun" ]
-  [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+if [ -s "$HOME/.bun/_bun" ]; then
+  source "$HOME/.bun/_bun"
 
   # bun
   export BUN_INSTALL="$HOME/.bun"
