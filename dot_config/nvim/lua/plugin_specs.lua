@@ -80,6 +80,7 @@ local plugin_specs = {
   {
     "nvim-treesitter/nvim-treesitter",
     event = "VeryLazy",
+    branch = "master",
     build = ":TSUpdate",
     config = function()
       require("config.treesitter")
