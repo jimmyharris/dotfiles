@@ -4,3 +4,5 @@ bin/freeze_bash-it
 .config/bash-it.custom
 .gitconfig_global
 {{- end }}
+
+.fzf

@@ -1,0 +1,9 @@
+{{- if ne .chezmoi.os "darwin" }}
+["bin/fzf"]
+  type = "archive-file"
+  url = "{{ gitHubLatestReleaseAssetURL "junegunn/fzf" (printf "fzf-*-%s_%s.tar.gz" .chezmoi.os .chezmoi.arch) }}"
+  executable = true
+  path = "fzf"
+  refreshPeriod = "168h"
+{{- end }}
+

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if type fzf &> /dev/null; then 
+  # dconf.ini hash: {{ include (printf "%s/bin/fzf" .chezmoi.homeDir) | sha256sum }}
+  fzf --bash > "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
+fi
