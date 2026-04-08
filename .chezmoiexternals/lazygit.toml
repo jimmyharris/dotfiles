@@ -1,0 +1,13 @@
+{{- if ne .chezmoi.os "darwin" }}
+{{- $arch := .chezmoi.arch}}
+{{- if eq .chezmoi.arch "amd64" }}
+{{- $arch = "x86_64"}}
+{{- end }}
+[".local/bin/lazygit"]
+  type = "archive-file"
+  url = "{{ gitHubLatestReleaseAssetURL "jesseduffield/lazygit" (printf "lazygit*_%s_%s.tar.gz" .chezmoi.os $arch) }}"
+  executable = true
+  path = "lazygit"
+  refreshPeriod = "168h"
+{{- end }}
+
