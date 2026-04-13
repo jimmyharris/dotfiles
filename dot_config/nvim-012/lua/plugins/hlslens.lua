@@ -1,8 +1,8 @@
-vim.pack.add({
+vim.pack.add {
   {
-    src = __.gh("kevinhwang91/nvim-hlslens")
-  }
-})
+    src = __.gh("kevinhwang91/nvim-hlslens"),
+  },
+}
 local api = vim.api
 local keymap = vim.keymap
 

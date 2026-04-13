@@ -1,8 +1,8 @@
 local keymap = vim.keymap
 local uv = vim.uv
 
-keymap.set("", "Q", "gq", {desc = "Reformat motion"})
-keymap.set("", "<leader>A", ":A<CR><CR>", {desc = "Switch to alternate file."})
+keymap.set("", "Q", "gq", { desc = "Reformat motion" })
+keymap.set("", "<leader>A", ":A<CR><CR>", { desc = "Switch to alternate file." })
 
 -- Paste non-linewise text above or below current line, see https://stackoverflow.com/a/1346777/6064933
 keymap.set("n", "<leader>p", "m`o<ESC>p``", { desc = "paste below current line" })
@@ -26,6 +26,3 @@ keymap.set({ "n", "x" }, "L", "g_")
 -- to reselect previous visual area, see https://superuser.com/q/310417/736190
 keymap.set("x", "<", "<gv")
 keymap.set("x", ">", ">gv")
-
-
-

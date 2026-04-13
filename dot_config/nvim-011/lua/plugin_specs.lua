@@ -28,9 +28,8 @@ local plugin_specs = {
     priority = 1000,
     name = "sensible",
     config = function()
-
       vim.cmd("source " .. vim.fs.joinpath(plugin_dir, "sensible/plugin/sensible.vim"))
-    end
+    end,
   },
   -- auto-completion engine
   {
@@ -58,17 +57,17 @@ local plugin_specs = {
   },
   {
     "mason-org/mason.nvim",
-    opts = {}
+    opts = {},
   },
   {
     "mason-org/mason-lspconfig.nvim",
     dependencies = {
-        "mason-org/mason.nvim",
-        "neovim/nvim-lspconfig",
+      "mason-org/mason.nvim",
+      "neovim/nvim-lspconfig",
     },
     config = function()
       require("config.mason-lspconfig")
-    end
+    end,
   },
   {
     "dnlhc/glance.nvim",
@@ -119,9 +118,9 @@ local plugin_specs = {
       "nvim-telescope/telescope-symbols.nvim",
       "nvim-telescope/telescope-live-grep-args.nvim",
     },
-    config = function ()
+    config = function()
       require("config.telescope")
-    end
+    end,
   },
   {
     "ibhagwan/fzf-lua",
@@ -151,7 +150,7 @@ local plugin_specs = {
   { "rebelot/kanagawa.nvim", lazy = true },
   { "nvim-tree/nvim-web-devicons", event = "VeryLazy" },
   {
-    'stevearc/oil.nvim',
+    "stevearc/oil.nvim",
     ---@module 'oil'
     ---@type oil.SetupOpts
     opts = {},
@@ -186,7 +185,7 @@ local plugin_specs = {
   { "tpope/vim-abolish", event = "VeryLazy" },
   { "tpope/vim-surround", event = "VeryLazy" },
   { "andymass/vim-matchup", event = "BufRead" },
-  { "vim-scripts/SelectBuf", dependencies = {"vim-scripts/genutils"}, },
+  { "vim-scripts/SelectBuf", dependencies = { "vim-scripts/genutils" } },
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
@@ -213,7 +212,7 @@ local plugin_specs = {
     main = "ibl",
     config = function()
       require("config.indent-blankline")
-    end
+    end,
   },
   {
     "ojroques/nvim-osc52",
@@ -286,7 +285,7 @@ local plugin_specs = {
     cmd = { "Flog" },
     dependencies = {
       "tpope/vim-fugitive",
-    }
+    },
   },
   { "akinsho/git-conflict.nvim", version = "*", config = true },
   {
@@ -432,7 +431,8 @@ local plugin_specs = {
     "linux-cultist/venv-selector.nvim",
     dependencies = {
       "neovim/nvim-lspconfig",
-      "mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python", --optional
+      "mfussenegger/nvim-dap",
+      "mfussenegger/nvim-dap-python", --optional
       "nvim-telescope/telescope.nvim",
     },
     lazy = false,
@@ -441,9 +441,8 @@ local plugin_specs = {
     },
     config = function()
       require("config.venv-selector")
-    end
+    end,
   },
-
 }
 
 ---@diagnostic disable-next-line: missing-fields

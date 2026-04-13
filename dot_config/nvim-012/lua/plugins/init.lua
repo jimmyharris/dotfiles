@@ -3,11 +3,11 @@
 
 --- Core requirements:
 
-vim.pack.add({
+vim.pack.add {
   {
-    src = __.gh("nvim-lua/plenary.nvim")
-  }
-})
+    src = __.gh("nvim-lua/plenary.nvim"),
+  },
+}
 
 --- We must require configurations and modules in load order.
 
@@ -31,16 +31,15 @@ require("plugins.autopairs")
 require("plugins.nvim-ufo")
 
 --- Extra file types with no configuration
-vim.pack.add({
+vim.pack.add {
   {
     src = __.gh("cespare/vim-toml"),
-    version = "main"
+    version = "main",
   },
   {
     src = __.gh("tpope/vim-surround"),
   },
-  { 
-    src = __.gh("Bekaboo/dropbar.nvim")
+  {
+    src = __.gh("Bekaboo/dropbar.nvim"),
   },
-})
-
+}

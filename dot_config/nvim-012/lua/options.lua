@@ -107,15 +107,15 @@ opt.smartcase = true
 
 -- File and script encoding settings for vim
 opt.fileencoding = "utf-8"
-opt.fileencodings = { 
-  "ucs-bom", 
-  "utf-8", 
-  "cp936", 
-  "gb18030", 
-  "big5", 
-  "euc-jp", 
-  "euc-kr", 
-  "latin1" 
+opt.fileencodings = {
+  "ucs-bom",
+  "utf-8",
+  "cp936",
+  "gb18030",
+  "big5",
+  "euc-jp",
+  "euc-kr",
+  "latin1",
 }
 
 -- Break line at predefined characters
@@ -258,4 +258,3 @@ opt.showcmdloc = "statusline"
 
 -- dark background
 opt.background = "dark"
-

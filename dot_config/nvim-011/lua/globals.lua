@@ -41,7 +41,6 @@ else
   python_path = python_venv_dir .. "/bin/python"
 end
 
-
 if not vim.uv.fs_stat(python_venv_dir) then
   if utils.executable("uv") then
     fn.system {
@@ -49,7 +48,7 @@ if not vim.uv.fs_stat(python_venv_dir) then
       "venv",
       "--python",
       "3.13",
-      python_venv_dir
+      python_venv_dir,
     }
     fn.system {
       "uv",

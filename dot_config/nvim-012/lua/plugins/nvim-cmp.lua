@@ -1,27 +1,27 @@
 -- Setup nvim-cmp.
-vim.pack.add({
-  { 
-    src = __.gh("hrsh7th/cmp-nvim-lsp") 
+vim.pack.add {
+  {
+    src = __.gh("hrsh7th/cmp-nvim-lsp"),
   },
-  { 
-    src = __.gh("onsails/lspkind-nvim") 
+  {
+    src = __.gh("onsails/lspkind-nvim"),
   },
-  { 
-    src = __.gh("hrsh7th/cmp-path") 
+  {
+    src = __.gh("hrsh7th/cmp-path"),
   },
-  { 
-    src = __.gh("hrsh7th/cmp-buffer") 
+  {
+    src = __.gh("hrsh7th/cmp-buffer"),
   },
-  { 
-    src = __.gh("hrsh7th/cmp-omni") 
+  {
+    src = __.gh("hrsh7th/cmp-omni"),
   },
-  { 
-    src = __.gh("hrsh7th/cmp-cmdline")
+  {
+    src = __.gh("hrsh7th/cmp-cmdline"),
   },
-  { 
-    src = __.gh("hrsh7th/nvim-cmp") 
+  {
+    src = __.gh("hrsh7th/nvim-cmp"),
   },
-})
+}
 -- Setup nvim-cmp.
 local cmp = require("cmp")
 

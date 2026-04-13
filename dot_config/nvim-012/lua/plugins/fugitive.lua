@@ -1,11 +1,11 @@
 local keymap = vim.keymap
 local api = vim.api
 
-vim.pack.add({
+vim.pack.add {
   {
-    src = __.gh("tpope/vim-fugitive")
+    src = __.gh("tpope/vim-fugitive"),
   },
-})
+}
 keymap.set("n", "<leader>gs", "<cmd>Git<cr>", { desc = "Git: show status" })
 keymap.set("n", "<leader>gw", "<cmd>Gwrite<cr>", { desc = "Git: add file" })
 keymap.set("n", "<leader>gc", "<cmd>Git commit<cr>", { desc = "Git: commit changes" })
@@ -40,5 +40,5 @@ api.nvim_create_autocmd({ "BufReadPost" }, {
   group = "fugitive_custom_config",
   callback = function(ctx)
     vim.o.bufhidden = "delete"
-  end
+  end,
 })

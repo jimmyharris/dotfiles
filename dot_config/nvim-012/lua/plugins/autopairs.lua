@@ -1,7 +1,7 @@
-vim.pack.add({
+vim.pack.add {
   {
-    src = __.gh("windwp/nvim-autopairs")
-  }
-})
+    src = __.gh("windwp/nvim-autopairs"),
+  },
+}
 
 require("nvim-autopairs").setup {}

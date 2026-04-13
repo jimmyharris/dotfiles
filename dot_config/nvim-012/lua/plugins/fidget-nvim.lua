@@ -1,6 +1,6 @@
-vim.pack.add({
-  { src = __.gh("j-hui/fidget.nvim") }
-})
+vim.pack.add {
+  { src = __.gh("j-hui/fidget.nvim") },
+}
 local fidget = require("fidget")
 
 fidget.setup {}

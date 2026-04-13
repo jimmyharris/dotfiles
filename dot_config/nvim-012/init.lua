@@ -18,4 +18,3 @@ require("ui")
 require("plugins")
 
 require("mappings")
-

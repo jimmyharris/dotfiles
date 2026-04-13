@@ -63,7 +63,7 @@ M.colorscheme_conf = {
   end,
   catppuccin = function()
     vim.cmd("colorscheme catppuccin-mocha")
-  end
+  end,
 }
 
 --- Use a random colorscheme from the pre-defined list of colorschemes.

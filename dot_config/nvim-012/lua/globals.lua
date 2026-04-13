@@ -36,7 +36,6 @@ else
   python_path = python_venv_dir .. "/bin/python"
 end
 
-
 if not vim.uv.fs_stat(python_venv_dir) then
   if __.executable("uv") then
     vim.fn.system {
@@ -44,7 +43,7 @@ if not vim.uv.fs_stat(python_venv_dir) then
       "venv",
       "--python",
       "3.14",
-      python_venv_dir
+      python_venv_dir,
     }
     vim.fn.system {
       "uv",
@@ -60,7 +59,9 @@ if not vim.uv.fs_stat(python_venv_dir) then
       vim.g.python3_host_prog = python_path
     end
   else
-    vim.api.nvim_err_writeln("uv executable not found! You must install uv and set its PATH correctly!")
+    vim.api.nvim_err_writeln(
+      "uv executable not found! You must install uv and set its PATH correctly!"
+    )
   end
 else
   if vim.g.is_windows then
@@ -115,5 +116,4 @@ vim.g.user_rtp = vim.opt.rtp:get()[1]
 vim.g.health = { style = nil }
 
 -- Use OSC52 clipboard for all cases
-vim.g.clipboard = 'osc52'
-
+vim.g.clipboard = "osc52"

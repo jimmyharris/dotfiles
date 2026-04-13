@@ -1,6 +1,5 @@
-vim.pack.add({
+vim.pack.add {
   { src = __.gh("andymass/vim-matchup") },
-})
+}
 
-
-require("match-up").setup({})
+require("match-up").setup {}

@@ -1,4 +1,4 @@
--- UI configuration 
+-- UI configuration
 
 -- enable the experiment UI
 require("vim._core.ui2").enable {
@@ -25,11 +25,11 @@ require("vim._core.ui2").enable {
   },
 }
 
-vim.pack.add({
+vim.pack.add {
   {
     src = __.gh("catppuccin/nvim"),
-    name = "catppuccin"
-  }
-})
+    name = "catppuccin",
+  },
+}
 
 vim.cmd("colorscheme catppuccin")

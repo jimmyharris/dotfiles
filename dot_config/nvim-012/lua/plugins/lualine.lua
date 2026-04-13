@@ -1,6 +1,6 @@
-vim.pack.add({
-  { src = __.gh("nvim-lualine/lualine.nvim") }
-})
+vim.pack.add {
+  { src = __.gh("nvim-lualine/lualine.nvim") },
+}
 
 local fn = vim.fn
 

@@ -1,8 +1,8 @@
-vim.pack.add({
+vim.pack.add {
   {
-    src = __.gh("rcarriga/nvim-notify")
-  }
-})
+    src = __.gh("rcarriga/nvim-notify"),
+  },
+}
 local nvim_notify = require("notify")
 nvim_notify.setup {
   -- Animation style

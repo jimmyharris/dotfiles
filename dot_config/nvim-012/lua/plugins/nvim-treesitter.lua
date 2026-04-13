@@ -1,13 +1,13 @@
 -- a list of filetypes to install treesitter parsers and queries
-vim.pack.add({
+vim.pack.add {
   {
-    src = __.gh("nvim-treesitter/nvim-treesitter"), 
-    version = 'main'
+    src = __.gh("nvim-treesitter/nvim-treesitter"),
+    version = "main",
   },
   {
-    src = __.gh("RRethy/nvim-treesitter-endwise"), 
-  }
-})
+    src = __.gh("RRethy/nvim-treesitter-endwise"),
+  },
+}
 
 local nvim_treesitter = require("nvim-treesitter")
 
@@ -69,4 +69,3 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
 })
-

@@ -1,6 +1,6 @@
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
-require("oil").setup({
+require("oil").setup {
   columns = {
     "icon",
     "permission",
@@ -9,4 +9,4 @@ require("oil").setup({
   },
   watch_for_changes = true,
   show_hidden = true,
-})
+}

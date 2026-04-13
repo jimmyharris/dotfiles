@@ -8,13 +8,11 @@ which_key.setup {
   },
 }
 
-
 local keymap = vim.keymap
 
 keymap.set("n", "<leader>?", function()
-  which_key.show({ global = false })
-end,
-{
+  which_key.show { global = false }
+end, {
   silent = true,
   desc = "Buffer local keymaps (which-key)",
 })

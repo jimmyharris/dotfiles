@@ -1,10 +1,10 @@
--- Load which-key 
+-- Load which-key
 
-vim.pack.add({
+vim.pack.add {
   {
-    src = __.gh("folke/which-key.nvim")
-  }
-})
+    src = __.gh("folke/which-key.nvim"),
+  },
+}
 
 local which_key = require("which-key")
 
@@ -16,13 +16,11 @@ which_key.setup {
   },
 }
 
-
 local keymap = vim.keymap
 
 keymap.set("n", "<leader>?", function()
-  which_key.show({ global = false })
-end,
-{
+  which_key.show { global = false }
+end, {
   silent = true,
   desc = "Buffer local keymaps (which-key)",
 })

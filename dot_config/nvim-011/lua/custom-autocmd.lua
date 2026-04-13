@@ -63,7 +63,11 @@ api.nvim_create_autocmd({ "FileChangedShellPost" }, {
   pattern = "*",
   group = "auto_read",
   callback = function()
-    vim.notify("File changed on disk. Buffer reloaded!", vim.log.levels.WARN, { title = "nvim-config" })
+    vim.notify(
+      "File changed on disk. Buffer reloaded!",
+      vim.log.levels.WARN,
+      { title = "nvim-config" }
+    )
   end,
 })
 
@@ -166,7 +170,11 @@ api.nvim_create_autocmd("FileType", {
         local status, result = pcall(api.nvim_win_set_cursor, 0, mark_pos)
         if not status then
           api.nvim_err_writeln(
-            string.format("Failed to resume cursor position. Context %s, error: %s", vim.inspect(ev), result)
+            string.format(
+              "Failed to resume cursor position. Context %s, error: %s",
+              vim.inspect(ev),
+              result
+            )
           )
         end
       end)
@@ -206,7 +214,11 @@ api.nvim_create_autocmd("ColorScheme", {
   desc = "Define or overrride some highlight groups",
   callback = function()
     -- For yank highlight
-    vim.api.nvim_set_hl(0, "YankColor", { fg = "#34495E", bg = "#2ECC71", ctermfg = 59, ctermbg = 41 })
+    vim.api.nvim_set_hl(
+      0,
+      "YankColor",
+      { fg = "#34495E", bg = "#2ECC71", ctermfg = 59, ctermbg = 41 }
+    )
 
     -- For cursor colors
     vim.api.nvim_set_hl(0, "Cursor", { fg = "black", bg = "#00c918", bold = true })
@@ -273,7 +285,8 @@ api.nvim_create_autocmd("BufReadPre", {
   end,
 })
 
-local init_file_folding api.nvim_create_augroup("init_file_folding")
+local init_file_folding
+api.nvim_create_augroup("init_file_folding")
 
 local init_files = {
   "vimrc",
@@ -286,11 +299,13 @@ local init_files = {
 }
 
 for _, fname in ipairs(init_files) do
-  api.nvim_create_autocmd({"BufRead", {
-    group = init_file_folding,
-    pattern = fname,
-    command = "set foldmethod=marker",
-    desc = "Fold by marker on config files",
-  })
+  api.nvim_create_autocmd {
+    "BufRead",
+    {
+      group = init_file_folding,
+      pattern = fname,
+      command = "set foldmethod=marker",
+      desc = "Fold by marker on config files",
+    },
+  }
 end
-

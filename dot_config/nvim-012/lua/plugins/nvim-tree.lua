@@ -1,8 +1,8 @@
-vim.pack.add({
+vim.pack.add {
   {
-    src = __.gh("nvim-tree/nvim-tree.lua")
-  }
-})
+    src = __.gh("nvim-tree/nvim-tree.lua"),
+  },
+}
 
 local keymap = vim.keymap
 local nvim_tree = require("nvim-tree")

@@ -80,13 +80,13 @@ end
 --- get github url for repo
 --- @param repo_name string
 --- @return string
-__.gh = function(repo_name) 
-  return 'https://github.com/' .. repo_name 
+__.gh = function(repo_name)
+  return "https://github.com/" .. repo_name
 end
 
 --- get codeberg url for repo
 --- @param repo_name string
 --- @return string
-__.cb = function(repo_name) 
-  return 'https://codeberg.org/' .. repo_name
+__.cb = function(repo_name)
+  return "https://codeberg.org/" .. repo_name
 end
