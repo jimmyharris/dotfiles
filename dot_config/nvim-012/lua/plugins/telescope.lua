@@ -1,3 +1,5 @@
+require("plugins.nvim-dap")
+
 vim.pack.add {
   {
     src = __.gh("nvim-telescope/telescope-symbols.nvim"),
@@ -7,6 +9,9 @@ vim.pack.add {
   },
   {
     src = __.gh("nvim-telescope/telescope.nvim"),
+  },
+  {
+    src = __.gh("linux-cultist/venv-selector.nvim"),
   },
 }
 
@@ -32,3 +37,9 @@ keymap.set("n", "<leader>ft", tele_builtin.current_buffer_tags, { desc = "Telesc
 keymap.set("n", "<leader>fb", tele_builtin.buffers, { desc = "Telescope buffers" })
 
 keymap.set("n", "<leader>fr", tele_builtin.oldfiles, { desc = "Telescope buffers or files" })
+
+-- venv_selector configuration
+local venv_selector = require("venv-selector")
+local config = require("venv-selector.config")
+
+venv_selector.setup {}
