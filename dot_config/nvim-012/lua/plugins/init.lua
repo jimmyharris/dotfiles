@@ -14,7 +14,7 @@ vim.pack.add {
 require("plugins.nvim-treesitter")
 require("plugins.mini.icons")
 require("plugins.mini.indentscope")
-require("plugins.lualine")
+require("plugins.lualine-conf")
 require("plugins.nvim-tree")
 require("plugins.fidget-nvim")
 require("plugins.oil")

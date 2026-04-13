@@ -40,6 +40,6 @@ keymap.set("n", "<leader>fr", tele_builtin.oldfiles, { desc = "Telescope buffers
 
 -- venv_selector configuration
 local venv_selector = require("venv-selector")
-local config = require("venv-selector.config")
+-- local config = require("venv-selector.config")
 
 venv_selector.setup {}
