@@ -40,6 +40,9 @@ vim.pack.add {
     src = __.gh("tpope/vim-surround"),
   },
   {
+    src = __.gh("tpope/vim-abolish"),
+  },
+  {
     src = __.gh("Bekaboo/dropbar.nvim"),
   },
 }
