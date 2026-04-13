@@ -23,6 +23,7 @@ local lsps = {
   "pyrefly",
   "ruff",
   "terraformls",
+  "lua_ls",
 }
 
 if __.executable("npm") then

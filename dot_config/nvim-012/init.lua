@@ -17,4 +17,8 @@ require("ui")
 
 require("plugins")
 
+require("lsp_conf")
+
+require("diagnostic-conf")
+
 require("mappings")
