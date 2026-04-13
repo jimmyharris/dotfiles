@@ -6,3 +6,4 @@ bin/freeze_bash-it
 {{- end }}
 
 .fzf
+.config/nvim-next
