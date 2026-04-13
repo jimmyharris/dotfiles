@@ -29,6 +29,8 @@ require("plugins.hlslens")
 require("plugins.matchup")
 require("plugins.autopairs")
 require("plugins.nvim-ufo")
+require("plugins.glance")
+require("plugins.gitsigns")
 
 --- Extra file types with no configuration
 vim.pack.add {
