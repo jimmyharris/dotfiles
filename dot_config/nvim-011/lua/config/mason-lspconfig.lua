@@ -10,6 +10,7 @@ local npm_based_lsps = {
 local lsps = {
   "pyrefly",
   "ruff",
+  "lua_ls",
   "terraformls",
 }
 
