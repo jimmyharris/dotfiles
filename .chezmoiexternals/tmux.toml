@@ -1,0 +1,13 @@
+{{- if ne .chezmoi.os "darwin" }}
+{{- $arch := .chezmoi.arch}}
+{{- if eq .chezmoi.arch "amd64" }}
+{{- $arch = "x86_64"}}
+{{- end }}
+[".local/bin/tmux"]
+  type = "archive-file"
+  url = "{{ gitHubLatestReleaseAssetURL "tmux/tmux-builds" (printf "tmux*-%s-%s.tar.gz" .chezmoi.os $arch) }}"
+  executable = true
+  path = "tmux"
+  refreshPeriod = "168h"
+{{- end }}
+
