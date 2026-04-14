@@ -423,7 +423,8 @@ local function build_content()
   add(sep, "PackUiSeparator")
 
   -- Action bar
-  local bar = " [U]pdate All  [u] Update  [C]heck  [X] Clean  [D]elete  [L] Log  [?] Help"
+  local bar =
+    " [U]pdate All  [u] Update  [R]estore All  [r] Restore  [C]heck  [X] Clean  [D]elete  [L] Log  [?] Help"
   add(bar)
   -- Highlight the bracket keys (gmatch () captures are 1-based;
   -- the end capture points one past the match, which is exactly
@@ -439,6 +440,8 @@ local function build_content()
     add(" Keymaps:", "PackUiHelp")
     add("   U       Update all plugins", "PackUiHelp")
     add("   u       Update plugin under cursor", "PackUiHelp")
+    add("   R       Restore all plugins to state in lock file", "PackUiHelp")
+    add("   r       Restore plugin under cursor", "PackUiHelp")
     add("   C       Check remote for new commits", "PackUiHelp")
     add("   X       Clean non-active plugins", "PackUiHelp")
     add("   D       Delete plugin under cursor (non-active only)", "PackUiHelp")
@@ -721,6 +724,21 @@ local function setup_keymaps()
     if name then
       close()
       vim.pack.update { name }
+    end
+  end, opts)
+
+  -- Restore All plugins with lockfile
+  vim.keymap.set("n", "R", function()
+    close()
+    vim.pack.update(nil, { target = "lockfile" })
+  end, opts)
+
+  -- Update plugin under cursor
+  vim.keymap.set("n", "r", function()
+    local name = plugin_at_cursor()
+    if name then
+      close()
+      vim.pack.update({ name }, { target = "lockfile" })
     end
   end, opts)
 
