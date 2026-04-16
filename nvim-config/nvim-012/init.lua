@@ -13,8 +13,4 @@ require("options")
 
 require("ui")
 
-require("lsp_conf")
-
-require("diagnostic-conf")
-
 require("mappings")
