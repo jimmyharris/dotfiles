@@ -13,10 +13,3 @@ if exists(":Tabularize")
 endif
 " }}}
 
-" FZF: {{{
-" Open files in horizontal split
-if exists('g:loaded_fzf')
-  nnoremap <silent> <C-p> :call fzf#run({'up': '40%', 'sink': 'e'})<CR>
-endif
-" }}}
-
