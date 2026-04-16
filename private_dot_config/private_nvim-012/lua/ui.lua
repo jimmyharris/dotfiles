@@ -25,11 +25,11 @@ require("vim._core.ui2").enable {
   },
 }
 
-vim.pack.add {
-  {
-    src = __.gh("catppuccin/nvim"),
-    name = "catppuccin",
-  },
-}
+vim.pack.add({ {
+  src = "https://github.com/catppuccin/nvim",
+  name = "catppuccin",
+} }, {
+  load = false,
+})
 
-vim.cmd("colorscheme catppuccin")
+vim.cmd.colorscheme("catppuccin-nvim")

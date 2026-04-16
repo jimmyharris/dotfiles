@@ -1,5 +1,4 @@
 local keymap = vim.keymap
-local uv = vim.uv
 
 keymap.set("", "Q", "gq", { desc = "Reformat motion" })
 keymap.set("", "<leader>A", ":A<CR><CR>", { desc = "Switch to alternate file." })

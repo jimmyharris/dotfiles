@@ -1,5 +1,4 @@
 -- Controls tooltip configuration
--- THis controls tooltip configuration for lua
 local diagnostic = vim.diagnostic
 local api = vim.api
 

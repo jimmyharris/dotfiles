@@ -1,3 +1,4 @@
+local utils = require("utils")
 ------------------------------------------------------------------------
 --                          global options                            --
 ------------------------------------------------------------------------
@@ -12,9 +13,9 @@ vim.o.expandtab = true
 ------------------------------------------------------------------------
 --                          custom variables                          --
 ------------------------------------------------------------------------
-vim.g.is_windows = (__.has("win32") or __.has("win64")) and true or false
-vim.g.is_linux = (__.has("unix") and (not __.has("macunix"))) and true or false
-vim.g.is_mac = __.has("macunix") and true or false
+vim.g.is_windows = (utils.has("win32") or utils.has("win64")) and true or false
+vim.g.is_linux = (utils.has("unix") and (not utils.has("macunix"))) and true or false
+vim.g.is_mac = utils.has("macunix") and true or false
 
 vim.g.logging_level = vim.log.levels.INFO
 
@@ -37,7 +38,7 @@ else
 end
 
 if not vim.uv.fs_stat(python_venv_dir) then
-  if __.executable("uv") then
+  if utils.executable("uv") then
     vim.fn.system {
       "uv",
       "venv",
@@ -108,9 +109,6 @@ vim.g.loaded_matchparen = 1
 
 -- Disable sql omni completion, it is broken.
 vim.g.loaded_sql_completion = 1
-
--- Point to the initial runtime path for lua
-vim.g.user_rtp = vim.opt.rtp:get()[1]
 
 -- control how to show health check window
 vim.g.health = { style = nil }

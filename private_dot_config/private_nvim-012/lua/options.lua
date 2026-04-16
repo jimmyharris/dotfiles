@@ -1,3 +1,4 @@
+local utils = require("utils")
 local fn = vim.fn
 local opt = vim.opt
 local api = vim.api
@@ -215,7 +216,7 @@ opt.synmaxcol = 250 -- Text after this column number is not highlighted
 opt.startofline = false
 
 -- External program to use for grep command
-if __.executable("rg") then
+if utils.executable("rg") then
   opt.grepprg = "rg --vimgrep --no-heading --smart-case"
   opt.grepformat = "%f:%l:%c:%m"
 end
