@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "ansible-vim": {
+      "rev": "9e020fbb31b4959ea12d97afa78a90c7528ac109",
+      "src": "https://github.com/pearofducks/ansible-vim"
+    },
     "catppuccin": {
       "rev": "426dbebe06b5c69fd846ceb17b42e12f890aedf1",
       "src": "https://github.com/catppuccin/nvim"
