@@ -6,6 +6,9 @@ require("lazyload").on_vim_enter(function()
     {
       src = "https://github.com/tpope/vim-fugitive",
     },
+    {
+      src = "https://github.com/rbong/vim-flog",
+    },
   }
   keymap.set("n", "<leader>gs", "<cmd>Git<cr>", { desc = "Git: show status" })
   keymap.set("n", "<leader>gw", "<cmd>Gwrite<cr>", { desc = "Git: add file" })
