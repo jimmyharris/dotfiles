@@ -52,6 +52,10 @@
       "rev": "bf86d8b79dce808e65fdb6e9269d0b4ed6d2eefc",
       "src": "https://github.com/dnlhc/glance.nvim"
     },
+    "grug-far.nvim": {
+      "rev": "21604255d0e8f9968322f61f2b6c09e5efe1285a",
+      "src": "https://github.com/MagicDuck/grug-far.nvim"
+    },
     "lspkind-nvim": {
       "rev": "c7274c48137396526b59d86232eabcdc7fed8a32",
       "src": "https://github.com/onsails/lspkind-nvim"
