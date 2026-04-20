@@ -1,13 +1,13 @@
 if [[ -x `which nvim` ]]; then
-	EDITOR=nvim
+  EDITOR=nvim
 elif [[ -x `which vim` ]]; then
-	EDITOR=vim
+  EDITOR=vim
 elif [[ -x `which nano` ]]; then
-	EDITOR=nano
+  EDITOR=nano
 elif [[ -x `which pico` ]]; then
-	EDITOR=pico
+  EDITOR=pico
 else
-	EDITOR=vi
+  EDITOR=vi
 fi
 
 export EDITOR

@@ -1,5 +1,5 @@
 if [[ -x /usr/libexec/path_helper ]]; then
-	eval $(/usr/libexec/path_helper -s)
+  eval $(/usr/libexec/path_helper -s)
 fi
 
 path=(/usr/local/bin /usr/bin /usr/local/sbin /usr/sbin $path)

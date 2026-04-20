@@ -1,5 +1,5 @@
 if [[ -f ~/.zkbd/$TERM-$VENDOR-$OSTYPE ]]; then
-	source ~/.zkbd/$TERM-$VENDOR-$OSTYPE
+  source ~/.zkbd/$TERM-$VENDOR-$OSTYPE
 else
-	source $ZSHKIT/default_zkbd
+  source $ZSHKIT/default_zkbd
 fi
