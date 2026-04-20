@@ -7,7 +7,7 @@ if type chezmoi &> /dev/null; then
   if [[ $(type -t compopt) = "builtin" ]]; then
     complete -o default -F __start_chezmoi cz
   else
-      complete -o default -o nospace -F __start_chezmoi cz
+    complete -o default -o nospace -F __start_chezmoi cz
   fi
 fi
 

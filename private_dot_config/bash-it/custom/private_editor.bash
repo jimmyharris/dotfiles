@@ -3,20 +3,20 @@
 
 # If we are running in a visual studio code integrated terminal:
 if [ "$TERM_PROGRAM" == "vscode" ]; then
-    EDITOR="code --wait"
-    # source "$(code --locate-shell-integration-path bash)"
+  EDITOR="code --wait"
+  # source "$(code --locate-shell-integration-path bash)"
 elif command -v nvim &> /dev/null; then
-    EDITOR="nvim"
+  EDITOR="nvim"
 elif command -v code &> /dev/null; then
-    EDITOR="code --wait"
+  EDITOR="code --wait"
 elif command -v vim &> /dev/null; then
-    EDITOR="vim"
+  EDITOR="vim"
 elif command -v nano &> /dev/null; then
-    EDITOR="nano"
+  EDITOR="nano"
 elif command -v pico &> /dev/null; then
-    EDITOR="pico"
+  EDITOR="pico"
 else
-    EDITOR="vi"
+  EDITOR="vi"
 fi
 
 export EDITOR

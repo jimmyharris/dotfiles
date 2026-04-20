@@ -3,6 +3,6 @@ cite about-plugin
 about-plugin 'add uv tool paths to path if they exist'
 
 if type uv &> /dev/null; then
-	pathmunge "$(uv tool dir --bin)"
+  pathmunge "$(uv tool dir --bin)"
 fi
 

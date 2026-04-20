@@ -7,6 +7,7 @@ if type bob &> /dev/null; then
   nvim-012() {
     NVIM_APPNAME=nvim-012 bob run 0.12.1 "$@"
   }
+
   nvim-011() {
     NVIM_APPNAME=nvim-011 bob run 0.11.6 "$@"
   }
