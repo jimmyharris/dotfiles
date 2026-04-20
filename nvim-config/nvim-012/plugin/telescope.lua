@@ -47,6 +47,13 @@ require("lazyload").on_vim_enter(function()
 
   -- venv_selector configuration
   local venv_selector = require("venv-selector")
+  -- Uncomment if we need to modify configuration.
+  -- local config = require("venv-selector.config")
 
   venv_selector.setup {}
+
+  keymap.set("n", "<leader>v", function()
+    vim.cmd("VenvSelect")
+  end, { desc = "Telescope Virtual Environments" })
+
 end)
