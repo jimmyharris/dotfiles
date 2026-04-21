@@ -1,0 +1,13 @@
+nvim-*/plugins/
+nvim-*/lazy/
+nvim-*/local/
+nvim-*/shada/
+nvim-*/^local/README.md
+nvim-*/^local/overrides/README.md
+nvim-*/.netrw*
+nvim-*/.VimballRecord
+nvim-*/eclim*
+nvim-*/eclim/
+nvim-*/en.utf-8.spl
+nvim-*/en.utf-8.sug
+nvim-*/Session.vim

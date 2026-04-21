@@ -8,5 +8,5 @@ trim_trailing_whitespace = true
 
 # Don't trim trailing whitespace from these files becasue they aren't really
 # mine.
-[{autoload/plug.vim, **/plugins/*, **/*.snippets, spell/**/* }]
+[{*/autoload/plug.vim, **/*.snippets, spell/**/* }]
 trim_trailing_whitespace = false
