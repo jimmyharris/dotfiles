@@ -74,6 +74,8 @@ end
 
 -- Custom mapping <leader> (see `:h mapleader` for more info)
 vim.g.mapleader = ","
+-- Custom mapping <localleader> (see `:h maplocalleader` for more info)
+vim.g.maplocalleader = "\\"
 
 -- Enable highlighting for lua HERE doc inside vim script
 vim.g.vimsyn_embed = "l"
