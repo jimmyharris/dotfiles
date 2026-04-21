@@ -10,8 +10,8 @@ keymap.set("n", "<leader>P", "m`O<ESC>p``", { desc = "paste above current line" 
 -- Move the cursor based on physical lines, not the actual lines.
 keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
-keymap.set("n", "^", "g^")
-keymap.set("n", "0", "g0")
+-- keymap.set("n", "^", "g^")
+-- keymap.set("n", "0", "g0")
 
 -- Do not include white space characters when using $ in visual mode,
 -- see https://vi.stackexchange.com/q/12607/15292
