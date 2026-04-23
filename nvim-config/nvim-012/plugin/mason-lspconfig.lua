@@ -17,15 +17,17 @@ require("lazyload").on_vim_enter(function()
   local npm_based_lsps = {
     "ansiblels",
     "bashls",
+    "docker_language_server",
     "vimls",
     "yamlls",
   }
 
   local lsps = {
+    "dockerls",
+    "lua_ls",
     "pyrefly",
     "ruff",
     "terraformls",
-    "lua_ls",
   }
 
   if utils.executable("npm") then
