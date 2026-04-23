@@ -1,4 +1,5 @@
 # chezmoi:template:left-delimiter="# [[" right-delimiter=]]
+# vim:ft=yaml
 
 keybinding:
   universal:
@@ -9,20 +10,11 @@ customCommands:
   - key: "<c-g>"
     description: "Gerrit commands"
     commandMenu:
-      - key: "p"
-        description: "Push gerrit change"
-        context: "global"
-        loadingText: "Pushing to gerrit ..."
-        command: "git review -y"
-        output: "log"
-      - key: "T"
-        description: "Push without topic"
-        context: "global"
-        loadingText: "Cherry-Picking out Gerrit Review ..."
-        command: "git review -y -T"
-        output: "log"
+    - key: "p"
+      description: "Pull Gerrit Change"
+      commandMenu:
       - key: "d"
-        description: "Checkout gerrit review"
+        description: "Checkout gerrit review (from menu)"
         context: "localBranches"
         loadingText: "Checking out Gerrit Review ..."
         command: "git review -d {{.Form.ChangeNumber}}"
@@ -36,7 +28,7 @@ customCommands:
             valueFormat: '{{.number}}'
             labelFormat: '{{.number | white | bold}} {{.Subject | yellow | bold}}{{" [" | black | bold}}{{.branch | green}}{{"]" | black | bold}}'
       - key: "x"
-        description: "Cherry-pick gerrit review"
+        description: "Cherry-pick gerrit review (from menu)"
         context: "localBranches"
         loadingText: "Cherry-Picking out Gerrit Review ..."
         command: "git review -x {{.Form.ChangeNumber}}"
@@ -49,4 +41,25 @@ customCommands:
             filter: '(?P<number>[0-9]+)  (?P<branch>[^ ]+)  (?P<Subject>.+)'
             valueFormat: '{{.number}}'
             labelFormat: '{{"#" | black | bold}}{{.number | white | bold}} {{.Subject | yellow | bold}}{{" [" | black | bold}}{{.branch | green}}{{"]" | black | bold}}'
+    - key: "P"
+      description: "Push gerrit review"
+      commandMenu:
+      - key: "p"
+        description: "Push gerrit change"
+        context: "global"
+        loadingText: "Pushing to gerrit ..."
+        command: "git review -y"
+        output: "log"
+      - key: "r"
+        description: "Push without rebase"
+        context: "global"
+        loadingText: "Pushing to gerrit ..."
+        command: "git review -y -R"
+        output: "log"
+      - key: "T"
+        description: "Push without topic"
+        context: "global"
+        loadingText: "Cherry-Picking out Gerrit Review ..."
+        command: "git review -y -T"
+        output: "log"
 # [[- end ]]
