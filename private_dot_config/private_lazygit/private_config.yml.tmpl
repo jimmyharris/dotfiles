@@ -24,7 +24,7 @@ customCommands:
             key: "ChangeNumber"
             command: >-
               bash -c "git review -l | tac | tail -n +2 | tac"
-            filter: '(?P<number>[0-9]+)  (?P<branch>[^ ]+)  (?P<Subject>.+)'
+            filter: '(?P<number>[0-9]+)\s+(?P<branch>[^ ]+)  (?P<Subject>.+)'
             valueFormat: '{{.number}}'
             labelFormat: '{{.number | white | bold}} {{.Subject | yellow | bold}}{{" [" | black | bold}}{{.branch | green}}{{"]" | black | bold}}'
       - key: "x"
@@ -38,7 +38,7 @@ customCommands:
             key: "ChangeNumber"
             command: >-
               bash -c "git review -l | tac | tail -n +2 | tac"
-            filter: '(?P<number>[0-9]+)  (?P<branch>[^ ]+)  (?P<Subject>.+)'
+            filter: '(?P<number>[0-9]+)\s+(?P<branch>[^ ]+)  (?P<Subject>.+)'
             valueFormat: '{{.number}}'
             labelFormat: '{{"#" | black | bold}}{{.number | white | bold}} {{.Subject | yellow | bold}}{{" [" | black | bold}}{{.branch | green}}{{"]" | black | bold}}'
     - key: "P"
