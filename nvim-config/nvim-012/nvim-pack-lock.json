@@ -4,6 +4,15 @@
       "rev": "9e020fbb31b4959ea12d97afa78a90c7528ac109",
       "src": "https://github.com/pearofducks/ansible-vim"
     },
+    "canola-collection": {
+      "rev": "8566c09080c3084db1ffba21dec53e2b4235daed",
+      "src": "https://github.com/barrettruth/canola-collection"
+    },
+    "canola.nvim": {
+      "rev": "3a2a1c8a9ce775e435c7d73f91e5df664b037878",
+      "src": "https://github.com/barrettruth/canola.nvim",
+      "version": "'canola'"
+    },
     "catppuccin": {
       "rev": "426dbebe06b5c69fd846ceb17b42e12f890aedf1",
       "src": "https://github.com/catppuccin/nvim"
@@ -120,10 +129,6 @@
     "nvim-ufo": {
       "rev": "ab3eb124062422d276fae49e0dd63b3ad1062cfc",
       "src": "https://github.com/kevinhwang91/nvim-ufo"
-    },
-    "oil.nvim": {
-      "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
-      "src": "https://github.com/stevearc/oil.nvim"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
