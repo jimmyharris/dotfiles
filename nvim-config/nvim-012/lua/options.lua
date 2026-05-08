@@ -167,8 +167,8 @@ opt.autoread = true
 -- The meaning of the format str for strftime can be found in
 -- http://man7.org/linux/man-pages/man3/strftime.3.html. The function to get
 -- lastmod time is drawn from https://stackoverflow.com/q/8426736/6064933
--- opt.title = true
--- o.titlestring = "%{v:lua.require('utils').get_titlestr()}"
+opt.title = true
+o.titlestring = "%{v:lua.require('utils').get_titlestr()}"
 
 -- Persistent undo even after you close a file and re-open it
 opt.undofile = true
