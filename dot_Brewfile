@@ -1,0 +1,38 @@
+tap "aranborkum/tap"
+tap "mistertea/et"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GitHub command-line tool
+brew "gh"
+# User-friendly front-end to ssh-agent(1)
+brew "keychain"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Remote terminal application
+brew "mosh"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Manage multiple Node.js versions
+brew "nvm"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Terminal multiplexer
+brew "tmux"
+# Parser generator tool
+brew "tree-sitter-cli"
+# Next-generation plugin manager for zsh
+brew "zplug"
+# A Cleaner, Modular Approach to Tmux Configuration
+brew "aranborkum/tap/tmuxedo"
+# Remote terminal with IP roaming
+brew "mistertea/et/et"
+# Ookla essage-exporter"
+npm "corepack"
+npm "neovim"
+npm "vim-language-server"

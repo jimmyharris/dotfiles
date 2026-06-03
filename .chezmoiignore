@@ -8,6 +8,7 @@ bin/git-setup-review
 {{- if ne .chezmoi.os "darwin" }}
 .chezmoiscripts/darwin/**
 .config/zshkit
+.Brewfile
 .zprofile
 .zshenv
 .zshrc
