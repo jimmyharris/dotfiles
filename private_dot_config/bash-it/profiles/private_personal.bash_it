@@ -6,27 +6,22 @@ plugins edit-mode-vi
 plugins fzf
 plugins history-eternal
 plugins history
-plugins nvm
+# Slow and handled differently.
+# plugins nvm
 
 # Completion
-completion aliases
+# completion aliases
 completion bash-it
 completion cargo
 completion git
 completion npm
-completion nvm
 completion rustup
 completion ssh
 completion terraform
 completion tmux
 completion vault
-completion aliases
-completion bash-it
 completion system
+completion aliases
 
 # aliases
-aliases general
-aliases bash-it
-aliases directory
-aliases editor
 aliases general
