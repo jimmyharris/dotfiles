@@ -35,6 +35,7 @@ require("lazyload").on_vim_enter(function()
     "typescript",
     "vim",
     "yaml",
+    "jinja2",
     "zsh",
   }
 
