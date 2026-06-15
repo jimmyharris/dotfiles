@@ -13,7 +13,7 @@ require("lazyload").on_vim_enter(function()
   })
 
   -- extend autogroup to support playbooks
-  local ansible_ftyaml = vim.api.nvim_create_augroup("ansible_vim_ftyaml_ansible", {})
+  local ansible_ftyaml = vim.api.nvim_create_augroup("ansible_vim_ftyaml_ansible", { clear=false})
 
   vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     group = ansible_ftyaml,
