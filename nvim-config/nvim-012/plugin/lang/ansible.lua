@@ -22,5 +22,3 @@ require("lazyload").on_vim_enter(function()
   })
 
 end)
-
-
