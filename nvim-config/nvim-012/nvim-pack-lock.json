@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "SelectBuf": {
+      "rev": "bf13659a95f3d31e3dd14e035efe11f43d37ce6b",
+      "src": "https://github.com/vim-scripts/SelectBuf"
+    },
     "ansible-vim": {
       "rev": "6c42a448e30bc48ae98792bce38970148b0e3c9d",
       "src": "https://github.com/pearofducks/ansible-vim"
@@ -52,6 +56,10 @@
     "fzf-lua": {
       "rev": "988416cc782dfe28bff3f0da9b8c943b236cd86a",
       "src": "https://github.com/ibhagwan/fzf-lua"
+    },
+    "genutils": {
+      "rev": "e30cc0c3cd333bea3df352041cf51943c548d2e5",
+      "src": "https://github.com/vim-scripts/genutils"
     },
     "gitsigns.nvim": {
       "rev": "25050e4ed39e628282831d4cbecb1850454ce915",
