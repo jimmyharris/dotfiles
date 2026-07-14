@@ -134,6 +134,7 @@ end
 --- TS install languages if not present
 --- @param lang string
 function M.ts_install_once(lang)
+  local nvim_treesitter = require("nvim-treesitter")
   local is_parser_available = vim.treesitter.language.add(lang)
   if not is_parser_available then
     local available_langs = vim.g.ts_available or nvim_treesitter.get_available()
@@ -145,7 +146,7 @@ function M.ts_install_once(lang)
       -- install treesitter parsers and queries
       local install_msg = string.format("Installing parsers and queries for %s", lang)
       vim.print(install_msg)
-      require("nvim-treesitter").install(lang)
+      nvim_treesitter.install(lang)
     end
   end
 end
