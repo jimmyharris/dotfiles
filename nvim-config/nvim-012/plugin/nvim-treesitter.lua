@@ -1,3 +1,16 @@
+-- install nvim-treesitter before vim_enter so ansible can use it.
+
+vim.pack.add {
+  {
+    src = "https://github.com/neovim-treesitter/treesitter-parser-registry"
+  },
+  {
+    src = "https://github.com/neovim-treesitter/nvim-treesitter",
+    version = "main",
+  },
+}
+
+
 require("lazyload").on_vim_enter(function()
   vim.api.nvim_create_autocmd("PackChanged", {
     callback = function(ev)
@@ -9,18 +22,13 @@ require("lazyload").on_vim_enter(function()
   -- a list of filetypes to install treesitter parsers and queries
   vim.pack.add {
     {
-      src = "https://github.com/neovim-treesitter/treesitter-parser-registry"
-    },
-    {
-      src = "https://github.com/neovim-treesitter/nvim-treesitter",
-      version = "main",
-    },
-    {
       src = "https://github.com/RRethy/nvim-treesitter-endwise",
     },
   }
 
   local nvim_treesitter = require("nvim-treesitter")
+
+  -- Install required languages for ansible
 
   local ensure_installed = {
     "cpp",
