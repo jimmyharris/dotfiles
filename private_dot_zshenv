@@ -11,4 +11,6 @@ for script in $local_env/*.(sh|zsh); do
   fi
 done
 
+export ET_NO_TELEMETRY=1
+
 . "$HOME/.cargo/env"
