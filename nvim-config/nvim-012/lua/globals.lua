@@ -116,4 +116,21 @@ vim.g.loaded_sql_completion = 1
 vim.g.health = { style = nil }
 
 -- Use OSC52 clipboard for all cases
-vim.g.clipboard = "osc52"
+-- See https://github.com/neovim/neovim/issues/28611 for reference
+-- Note: inside tmux I can just use osc 52 because it will share correctly with tmux.
+if os.getenv("TMUX") ~= nil then
+  vim.g.clipboard = "osc52"
+else
+  -- stup out the paste portion of the clipboard because I am probably on windows and don't support pasting like this.
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+      ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+    },
+    paste = {
+      ['+'] = utils.dummy_paste("+"),
+      ['*'] = utils.dummy_paste("*"),
+    },
+  }
+end

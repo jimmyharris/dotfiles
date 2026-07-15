@@ -151,5 +151,15 @@ function M.ts_install_once(lang)
   end
 end
 
+--- A dummy paste function generator for disabling OSC52 paste on unsupported terminals.
+--- @param reg any a register name
+--- @returns a function that returns the value of the '"' register for putting data.
+function M.dummy_paste(reg)
+  return function(lines)
+    local content = vim.fn.getreg('"')
+    return vim.split(content, '\n')
+  end
+end
+
 return M
 
