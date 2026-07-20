@@ -3,6 +3,7 @@ bin/freeze_bash-it
 .config/bash-it-cz
 .config/bash-it.custom
 .gitconfig_global
+.gitconfig
 {{- end }}
 
 .fzf
