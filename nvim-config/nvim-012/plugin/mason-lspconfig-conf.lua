@@ -29,7 +29,7 @@ require("lazyload").on_vim_enter(function()
     install = function(ctx, source)
       -- Note that this implementation will always try to use uv and not fall back to default.
       -- Uncomment the following for a default fallback.
-      if utils.executable("uv") then
+      if not utils.executable("uv") then
         return pypi.install(ctx, source)
       end
       return Result.try(function(try)
