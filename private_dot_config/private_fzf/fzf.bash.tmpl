@@ -1,0 +1,4 @@
+{{- $homeBinDir := (joinPath .chezmoi.homeDir "bin") -}}
+{{- if findExecutable "fzf" (list $homeBinDir) -}}
+{{  output "fzf" "--bash" }}
+{{- end -}}
