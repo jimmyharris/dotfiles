@@ -1,0 +1,14 @@
+#!/bin/bash
+source_has_plugin() {
+  local _my_dir
+  _my_dir="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
+  if ! source "${_my_dir}/has_plugin"; then
+    >&2 echo "Error: Failed to source ./has_plugin"
+    return 1
+  fi
+}
+source_has_plugin
+
+if [ -f "$(get_dir_for_plugin catppuccin_tmux)" ]; then 
+  exec  "$(get_dir_for_plugin catppuccin_tmux)/catppuccin.tmux"
+fi
