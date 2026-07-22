@@ -8,3 +8,4 @@ bin/freeze_bash-it
 
 .fzf
 .config/nvim-next
+.tmux.conf
