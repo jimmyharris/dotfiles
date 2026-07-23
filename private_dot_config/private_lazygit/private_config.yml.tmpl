@@ -10,7 +10,7 @@ customCommands:
   - key: "<c-g>"
     description: "Gerrit commands"
     commandMenu:
-    - key: "p"
+    - key: "P"
       description: "Pull Gerrit Change"
       commandMenu:
       - key: "d"
@@ -41,7 +41,7 @@ customCommands:
             filter: '(?P<number>[0-9]+)\s+(?P<branch>[^ ]+)  (?P<Subject>.+)'
             valueFormat: '{{.number}}'
             labelFormat: '{{"#" | black | bold}}{{.number | white | bold}} {{.Subject | yellow | bold}}{{" [" | black | bold}}{{.branch | green}}{{"]" | black | bold}}'
-    - key: "P"
+    - key: "p"
       description: "Push gerrit review"
       commandMenu:
       - key: "p"
