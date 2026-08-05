@@ -16,7 +16,6 @@ bin/git-setup-review
 !.config/bash-it/profiles/*
 .config/bash-it/custom/local/
 .config/bash-it/enabled/
-.config/fzf/fzf.bash
 {{- end }}
 
 {{- if ne .chezmoi.os "linux" }}
