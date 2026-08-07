@@ -24,5 +24,3 @@ bin/git-setup-review
 .bashrc
 .config/fzf/fzf.bash
 {{- end }}
-
-nvim-config/**
