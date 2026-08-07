@@ -1,4 +1,4 @@
--- install nvim-treesitter before vim_enter so ansible can use it.
+-- install nvim-treesitter before vim_enter so ansible and gotmpl can use it.
 
 vim.pack.add {
   {
@@ -34,6 +34,7 @@ require("lazyload").on_vim_enter(function()
     "cpp",
     "diff",
     "go",
+    "gotmpl",
     "gomod",
     "gosum",
     "javascript",
@@ -60,6 +61,14 @@ require("lazyload").on_vim_enter(function()
       if lang == nil then
         return
       end
+
+      -- TODO: modify gotmpl checking and jinja2 checking to support dotted file types.
+      -- Code might look like this:
+      -- file_types = ft.split('.')
+      -- Loop over file types:
+      -- Check if parser is available for each file type and add it.
+      -- Then initialize the parsers.
+      -- Need to also inject hilighting appropriately for other languages.
 
       -- check if parser is available
       local is_parser_available = vim.treesitter.language.add(lang)

@@ -69,6 +69,10 @@
       "rev": "bf86d8b79dce808e65fdb6e9269d0b4ed6d2eefc",
       "src": "https://github.com/dnlhc/glance.nvim"
     },
+    "gotmpl.nvim": {
+      "rev": "df7937c19dd254e9617db0a1ff35e7abefd8c3b6",
+      "src": "https://github.com/ngynkvn/gotmpl.nvim.git"
+    },
     "grug-far.nvim": {
       "rev": "1cc080f55706b38aabfa97d40acb6adf59ac4a5a",
       "src": "https://github.com/MagicDuck/grug-far.nvim"
