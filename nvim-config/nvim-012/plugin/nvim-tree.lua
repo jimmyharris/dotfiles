@@ -7,9 +7,9 @@ require("lazyload").on_vim_enter(function()
   }
 
   local keymap = vim.keymap
-  local nvim_tree = require("nvim-tree")
 
-  nvim_tree.setup {
+  ---@type nvim_tree.config
+  local nvim_tree_config = {
     auto_reload_on_write = true,
     disable_netrw = false,
     hijack_netrw = true,
@@ -65,7 +65,7 @@ require("lazyload").on_vim_enter(function()
     git = {
       enable = true,
       ignore = true,
-      timeout = 400,
+      timeout = 2000,
     },
     actions = {
       use_system_clipboard = true,
@@ -104,6 +104,7 @@ require("lazyload").on_vim_enter(function()
       },
     },
   }
+  require("nvim-tree").setup(nvim_tree_config)
 
   keymap.set("n", "<leader>d", require("nvim-tree.api").tree.toggle, {
     silent = true,
