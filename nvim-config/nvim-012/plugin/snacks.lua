@@ -54,7 +54,9 @@ require("lazyload").on_vim_enter(function()
 
   if utils.executable("lazygit") then
     vim.keymap.set("n",  "<leader>gg", function()
-      Snacks.lazygit()
-    end, { desc = "Open Lazygit in cwd" })
+      Snacks.lazygit.open({
+        cwd = Snacks.git.get_root(0)
+      })
+    end, { desc = "Open Lazygit for buffer's repo" })
   end
 end)
