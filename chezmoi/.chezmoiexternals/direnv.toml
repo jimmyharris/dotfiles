@@ -1,0 +1,7 @@
+{{- if ne .chezmoi.os "windows" }}
+[".local/bin/direnv"]
+  type = "file"
+  url = "{{ gitHubLatestReleaseAssetURL "direnv/direnv" (printf "direnv.%s-%s" .chezmoi.os .chezmoi.arch) }}"
+  executable = true
+  refreshPeriod = "168h"
+{{- end }}
