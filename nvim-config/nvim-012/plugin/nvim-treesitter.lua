@@ -69,6 +69,7 @@ require("lazyload").on_vim_enter(function()
       -- Check if parser is available for each file type and add it.
       -- Then initialize the parsers.
       -- Need to also inject hilighting appropriately for other languages.
+      -- (consider doing this in this plugin. Also consider creating a new auto command event that fires once treesitter is loaded.)
 
       -- check if parser is available
       local is_parser_available = vim.treesitter.language.add(lang)
