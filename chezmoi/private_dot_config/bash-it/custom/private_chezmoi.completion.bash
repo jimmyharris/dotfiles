@@ -4,6 +4,7 @@ about-plugin 'alias for chezmoi for easier use'
 
 if type chezmoi &> /dev/null; then
   eval "$(chezmoi completion bash)"
+  # Support the cz alias in completion
   if [[ $(type -t compopt) = "builtin" ]]; then
     complete -o default -F __start_chezmoi cz
   else
