@@ -2,6 +2,10 @@
 
 set -x
 
+: "${CHEZMOI_SRC:=}"
+CHEZMOI_SRC_FLAG=()
+[ -n "${CHEZMOI_SRC}" ] && CHEZMOI_SRC_FLAG=(--source "${CHEZMOI_SRC}")
+
 # Install required packages:
 # Apt Packages
 _apt_pkgs=(
@@ -77,7 +81,10 @@ bob use v0.12.4 || exit $?
 gh auth login || exit $?
 
 # Setup Chezmoi
-sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply jimmyharris
+if [ "${CHEZMOI_SKIP_INIT:-0}" != "1" ]; then
+  sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply \
+    "${CHEZMOI_SRC_FLAG[@]}" jimmyharris
 
-# Run chezmoi apply again after loading once to finish fzf setup
-chezmoi apply
+  # Run chezmoi apply again after loading once to finish fzf setup
+  chezmoi apply "${CHEZMOI_SRC_FLAG[@]}"
+fi
