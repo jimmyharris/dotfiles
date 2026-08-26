@@ -7,6 +7,14 @@ __has_controlling_tty() {
   { true < /dev/tty; } 2>/dev/null
 }
 
+__run_with_controlling_tty() {
+  if __has_controlling_tty; then
+    "$@" < /dev/tty
+  else
+    "$@"
+  fi
+}
+
 
 : "${CHEZMOI_SRC:=}"
 CHEZMOI_SRC_FLAG=()
@@ -104,9 +112,9 @@ fi
 
 # Setup Chezmoi
 if [ "${CHEZMOI_SKIP_INIT:-0}" != "1" ]; then
-  sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply \
-    "${CHEZMOI_SRC_FLAG[@]}" jimmyharris
+  __run_with_controlling_tty sh -c "$(curl -fsLS https://get.chezmoi.io)" -- \
+    init --apply "${CHEZMOI_SRC_FLAG[@]}" jimmyharris || exit $?
 
   # Run chezmoi apply again after loading once to finish fzf setup
-  chezmoi apply "${CHEZMOI_SRC_FLAG[@]}"
+  __run_with_controlling_tty chezmoi apply "${CHEZMOI_SRC_FLAG[@]}"
 fi
