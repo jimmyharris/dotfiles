@@ -38,14 +38,13 @@ cargo --version || exit $?
 
 # Install cargo extensions
 _crates=(
-  "cargo-update"
   "cargo-binstall"
-  "tmuxedo"
   )
 
-cargo install "${_crates[@]}" || exit $?
+cargo install --locked "${_crates[@]}" || exit $?
 
 _binstall_crates=(
+  cargo-update
   bob-nvim
   stylua
   tree-sitter-cli
@@ -54,8 +53,9 @@ _binstall_crates=(
   fnm
   viu
   starship
+  tmuxedo
 )
-cargo binstall "${_binstall_crates[@]}" || exit $?
+cargo binstall --disable-telemetry -y --locked "${_binstall_crates[@]}" || exit $?
 
 # Install uv
 curl -LSf --max-time 30 --retry 5 "${UV_INSTALLER_URL-https://astral.sh/uv/install.sh}" | bash
