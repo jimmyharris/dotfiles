@@ -2,6 +2,12 @@
 
 set -x
 
+# Check if we have a controlling tty
+__has_controlling_tty() {
+  { true < /dev/tty; } 2>/dev/null
+}
+
+
 : "${CHEZMOI_SRC:=}"
 CHEZMOI_SRC_FLAG=()
 [ -n "${CHEZMOI_SRC}" ] && CHEZMOI_SRC_FLAG=(--source "${CHEZMOI_SRC}")
@@ -78,7 +84,23 @@ bob use v0.12.4 || exit $?
   && sudo apt update \
   && sudo apt install gh -y
 
-gh auth login || exit $?
+# Authenticate GitHub CLI only when needed, and only when we can actually
+# interact with the user.
+# pipe but the controlling terminal remains reachable at /dev/tty.
+
+# If we are already authenticated we don't need to authenticate here again.
+if gh auth status --hostname github.com >/dev/null 2>&1; then
+  echo "GitHub CLI already authenticated; skipping gh auth login." >&2
+# If we have a GH_TOKEN or GITHUB_TOKEN env, use that
+elif [ -n "${GH_TOKEN:-}" ] || [ -n "${GITHUB_TOKEN:-}" ]; then
+  echo "GH_TOKEN/GITHUB_TOKEN present; skipping interactive gh auth login." >&2
+# If we are using a tty then ask the user for the login.
+elif __has_controlling_tty; then
+  gh auth login --hostname github.com < /dev/tty || exit $?
+else
+  echo "Non-interactive shell with no controlling terminal; skipping gh auth login." >&2
+  echo "Provide GitHub auth out of band (for example, with GH_TOKEN) if git operations are needed." >&2
+fi
 
 # Setup Chezmoi
 if [ "${CHEZMOI_SKIP_INIT:-0}" != "1" ]; then
