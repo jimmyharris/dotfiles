@@ -14,8 +14,8 @@ if [[ -d "$HOME/.linuxbrew/bin" ]]; then
   path=("$HOME/.linuxbrew/bin" $path)
 fi
 
-if [[ -d "$HOME/.local/bin" ]]; then
-  path=("$HOME/.local/bin" $path)
+if [[ -f "$HOME/.local/bin/env" ]]; then
+  source "$HOME/.local/bin/env"
 fi
 
 # set up fpath
@@ -23,5 +23,9 @@ fpath=("$ZSHKIT/func" $fpath)
 
 # Setup home directory bin path.
 path=("$HOME/bin" $path)
+
+if [ -f "$HOME/.cargo/env" ]; then 
+  source "$HOME/.cargo/env"
+fi
 
 typeset -U path fpath manpath
