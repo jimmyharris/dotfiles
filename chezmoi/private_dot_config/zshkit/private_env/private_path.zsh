@@ -28,4 +28,12 @@ if [ -f "$HOME/.cargo/env" ]; then
   source "$HOME/.cargo/env"
 fi
 
+if [[ -x `which fnm` ]]; then
+  source <(fnm env --shell zsh)
+fi
+
+if [ -f "$HOME/.local/share/bob/env/env.sh" ]; then 
+  source "$HOME/.local/share/bob/env/env.sh"
+fi
+
 typeset -U path fpath manpath

@@ -1,38 +1,43 @@
 tap "aranborkum/tap"
-tap "mistertea/et"
+tap "mistertea/et", "https://github.com/MisterTea/homebrew-et"
+tap "teamookla/speedtest"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
-# Simple, fast and user-friendly alternative to find
-brew "fd"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GitHub command-line tool
 brew "gh"
-# User-friendly front-end to ssh-agent(1)
-brew "keychain"
+# Update of iperf: measures TCP, UDP, and SCTP bandwidth
+brew "iperf3"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Remote terminal application
 brew "mosh"
-# Ambitious Vim-fork focused on extensibility and agility
-brew "neovim"
-# Manage multiple Node.js versions
-brew "nvm"
-# Search tool like grep and The Silver Searcher
-brew "ripgrep"
-# Cross-shell prompt for astronauts
-brew "starship"
+# Netgear Unbrick Utility
+brew "nmrpflash"
+# Rsync for cloud storage
+brew "rclone"
 # Terminal multiplexer
 brew "tmux"
-# Parser generator tool
-brew "tree-sitter-cli"
 # Next-generation plugin manager for zsh
 brew "zplug"
 # A Cleaner, Modular Approach to Tmux Configuration
-brew "aranborkum/tap/tmuxedo"
+brew "aranborkum/tap/tmuxedo", trusted: true
 # Remote terminal with IP roaming
-brew "mistertea/et/et"
-# Ookla essage-exporter"
-npm "corepack"
-npm "neovim"
-npm "vim-language-server"
+brew "mistertea/et/et", trusted: true
+# Ookla Speedtest
+brew "teamookla/speedtest/speedtest", trusted: true
+cargo "bob-nvim"
+cargo "cargo-binstall"
+cargo "cargo-update"
+cargo "fd-find"
+cargo "fnm"
+cargo "imessage-exporter"
+cargo "ripgrep"
+cargo "starship"
+cargo "stylua"
+cargo "tmuxedo"
+cargo "tree-sitter-cli"
+cargo "viu"
+uv "pyright"
+uv "ruff"
