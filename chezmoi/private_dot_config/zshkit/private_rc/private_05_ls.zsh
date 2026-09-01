@@ -13,6 +13,7 @@ elif [[ $OSTYPE == "linux-gnu" ]]; then
   # completion colours
   zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 else
+  alias ls='ls -h --color=auto '
   # TODO: Fix bsd ls for solarized. much uglier than it seems.
   # export LS_COLORS=BxfxcxdxCxegedabagacadp
   export LS_COLORS=gxfxbEaEBxxEhEhBaDaCaD
