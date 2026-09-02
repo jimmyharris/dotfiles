@@ -12,7 +12,7 @@ require("lazyload").on_vim_enter(function()
   -- disable preview for already open buffers.
   require("markview").commands.Disable()
 
-  vim.api.nvim_set_keymap("n", "<leader>sv", "<CMD>Markview splitToggle<CR>", {
-    desc = "Toggles `splitview` for current buffer."
+  vim.api.nvim_set_keymap("n", "<leader>sv", "<CMD>Markview Toggle<CR>", {
+    desc = "Toggles Markview `preview` for current buffer."
   })
 end)
