@@ -4,67 +4,74 @@
 keybinding:
   universal:
     confirmInEditor: <c-s>
-
 os:
   # Note: Tmux will capture these too for internal pasting.
   copyToClipboardCmd: >
     printf "\033]52;c;$(printf {{text}} | base64 -w 0)\a" > /dev/tty
 
-# [[ if .work -]]
 customCommands:
-  - key: "<c-g>"
+  - key: 'U'
+    command: 'git submodule update --init --recursive'
+    context: 'files'
+    description: 'Update submodules'
+    output: log
+  - key: 'u'
+    command: 'git submodule update -- {{.SelectedFile.Name}}'
+    context: 'files'
+    description: 'Update submodule'
+# [[ if .work ]]  - key: "<c-g>"
     description: "Gerrit commands"
     commandMenu:
-    - key: "P"
-      description: "Pull Gerrit Change"
-      commandMenu:
-      - key: "d"
-        description: "Checkout gerrit review (from menu)"
-        context: "localBranches"
-        loadingText: "Checking out Gerrit Review ..."
-        command: "git review -d {{.Form.ChangeNumber}}"
-        prompts:
-          - type: "menuFromCommand"
-            title: "Which Change-Set do you want to check out?"
-            key: "ChangeNumber"
-            command: >-
-              bash -c "git review -l | tac | tail -n +2 | tac"
-            filter: '(?P<number>[0-9]+)\s+(?P<branch>[^ ]+)  (?P<Subject>.+)'
-            valueFormat: '{{.number}}'
-            labelFormat: '{{.number | white | bold}} {{.Subject | yellow | bold}}{{" [" | black | bold}}{{.branch | green}}{{"]" | black | bold}}'
-      - key: "x"
-        description: "Cherry-pick gerrit review (from menu)"
-        context: "localBranches"
-        loadingText: "Cherry-Picking out Gerrit Review ..."
-        command: "git review -x {{.Form.ChangeNumber}}"
-        prompts:
-          - type: "menuFromCommand"
-            title: "Which Change-Set do you want to check out?"
-            key: "ChangeNumber"
-            command: >-
-              bash -c "git review -l | tac | tail -n +2 | tac"
-            filter: '(?P<number>[0-9]+)\s+(?P<branch>[^ ]+)  (?P<Subject>.+)'
-            valueFormat: '{{.number}}'
-            labelFormat: '{{"#" | black | bold}}{{.number | white | bold}} {{.Subject | yellow | bold}}{{" [" | black | bold}}{{.branch | green}}{{"]" | black | bold}}'
-    - key: "p"
-      description: "Push gerrit review"
-      commandMenu:
+      - key: "P"
+        description: "Pull Gerrit Change"
+        commandMenu:
+          - key: "d"
+            description: "Checkout gerrit review (from menu)"
+            context: "localBranches"
+            loadingText: "Checking out Gerrit Review ..."
+            command: "git review -d {{.Form.ChangeNumber}}"
+            prompts:
+              - type: "menuFromCommand"
+                title: "Which Change-Set do you want to check out?"
+                key: "ChangeNumber"
+                command: >-
+                  bash -c "git review -l | tac | tail -n +2 | tac"
+                filter: '(?P<number>[0-9]+)\s+(?P<branch>[^ ]+)  (?P<Subject>.+)'
+                valueFormat: '{{.number}}'
+                labelFormat: '{{.number | white | bold}} {{.Subject | yellow | bold}}{{" [" | black | bold}}{{.branch | green}}{{"]" | black | bold}}'
+          - key: "x"
+            description: "Cherry-pick gerrit review (from menu)"
+            context: "localBranches"
+            loadingText: "Cherry-Picking out Gerrit Review ..."
+            command: "git review -x {{.Form.ChangeNumber}}"
+            prompts:
+              - type: "menuFromCommand"
+                title: "Which Change-Set do you want to check out?"
+                key: "ChangeNumber"
+                command: >-
+                  bash -c "git review -l | tac | tail -n +2 | tac"
+                filter: '(?P<number>[0-9]+)\s+(?P<branch>[^ ]+)  (?P<Subject>.+)'
+                valueFormat: '{{.number}}'
+                labelFormat: '{{"#" | black | bold}}{{.number | white | bold}} {{.Subject | yellow | bold}}{{" [" | black | bold}}{{.branch | green}}{{"]" | black | bold}}'
       - key: "p"
-        description: "Push gerrit change"
-        context: "global"
-        loadingText: "Pushing to gerrit ..."
-        command: "git review -y"
-        output: "log"
-      - key: "r"
-        description: "Push without rebase"
-        context: "global"
-        loadingText: "Pushing to gerrit ..."
-        command: "git review -y -R"
-        output: "log"
-      - key: "T"
-        description: "Push without topic"
-        context: "global"
-        loadingText: "Cherry-Picking out Gerrit Review ..."
-        command: "git review -y -T"
-        output: "log"
+        description: "Push gerrit review"
+        commandMenu:
+          - key: "p"
+            description: "Push gerrit change"
+            context: "global"
+            loadingText: "Pushing to gerrit ..."
+            command: "git review -y"
+            output: "log"
+          - key: "r"
+            description: "Push without rebase"
+            context: "global"
+            loadingText: "Pushing to gerrit ..."
+            command: "git review -y -R"
+            output: "log"
+          - key: "T"
+            description: "Push without topic"
+            context: "global"
+            loadingText: "Cherry-Picking out Gerrit Review ..."
+            command: "git review -y -T"
+            output: "log"
 # [[- end ]]
