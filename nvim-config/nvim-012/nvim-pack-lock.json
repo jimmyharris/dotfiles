@@ -10,11 +10,11 @@
     },
     "canola-collection": {
       "rev": "8681de4443427dd30dbb7465b3f12367c9e4ee13",
-      "src": "https://github.com/barrettruth/canola-collection"
+      "src": "https://forge.barrettruth.com/barrettruth/canola-collection"
     },
     "canola.nvim": {
-      "rev": "aa3a122b31aa869ba1ce4be07a64cff2ba24e7c4",
-      "src": "https://github.com/barrettruth/canola.nvim",
+      "rev": "a83a61af34d148774fdd9ec1e756cd7dfaf8de88",
+      "src": "https://forge.barrettruth.com/barrettruth/canola.nvim",
       "version": "'canola'"
     },
     "catppuccin": {

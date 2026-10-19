@@ -13,11 +13,11 @@ require("lazyload").on_vim_enter(function()
   }
   vim.pack.add {
     {
-      src = "https://github.com/barrettruth/canola.nvim",
+      src = "https://forge.barrettruth.com/barrettruth/canola.nvim",
       version = "canola"
     },
     {
-      src = "https://github.com/barrettruth/canola-collection"
+      src = "https://forge.barrettruth.com/barrettruth/canola-collection"
     }
   }
 
