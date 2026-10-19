@@ -76,7 +76,7 @@ eval "$(fnm env)"
 fnm install v24.18.0 || exit $?
 
 # Install stable nvim
-bob use v0.12.4 || exit $?
+bob use v0.12.6 || exit $?
 
 # Install github client
 (
